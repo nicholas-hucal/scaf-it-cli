@@ -1,0 +1,13 @@
+{
+  "name": "scaffold-component",
+  "version": "1.0.0",
+  "description": "A CLI tool to scaffold React components",
+  "bin": {
+    "scaffold-component": "./scaffoldComponent.js"
+  },
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "path": "^0.12.7"
+  },
+  "license": "MIT"
+}
