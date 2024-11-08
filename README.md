@@ -1,6 +1,6 @@
 # Scaffold Component CLI Tool
 
-This CLI tool helps you create React component scaffolding with `.jsx` and `.scss` files. It generates a component directory containing the component and stylesheet, based on the specified component name.
+This CLI tool helps you create React component scaffolding with `.jsx`, `index.js` and `.scss` files. It generates a component directory containing the component and stylesheet, based on the specified component name.
 
 ## Prerequisites
 
@@ -64,6 +64,7 @@ This creates a directory `MyComponent` under `src/components` (or specified path
 
 - `MyComponent.jsx`
 - `MyComponent.scss`
+- `index.js`
 
 ## Troubleshooting
 
