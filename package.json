@@ -1,9 +1,9 @@
 {
   "name": "scaf-it",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool to scaffold React components",
   "bin": {
-    "scaf-it": "./index.js"
+    "scaf-it": "index.js"
   },
   "dependencies": {},
   "license": "MIT",
