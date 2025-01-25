@@ -1,5 +1,5 @@
 {
-  "name": "scaf-it",
+  "name": "scaf-it-cli",
   "version": "1.0.0",
   "description": "A CLI tool to scaffold React components",
   "bin": {
@@ -7,10 +7,10 @@
   },
   "dependencies": {},
   "license": "MIT",
-  "author": "Your Name <pineconeworkshopdev@gmail.com>",
+  "author": "Nicholas Hucal <pineconeworkshopdev@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicholas-hucal/scaf-it-npm.git"
+    "url": "git+https://github.com/nicholas-hucal/scaf-it-cli.git"
   },
   "keywords": [
     "cli",
