@@ -105,8 +105,6 @@ Examples:
   scaf-it MyComponent src/custom
   scaf-it MyComponent --no-index
   scaf-it MyComponent src/custom --css --no-index
-
-For help, use the --help flag: scaf-it --help
   `);
   process.exit(0);
 }
