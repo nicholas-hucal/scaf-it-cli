@@ -1,4 +1,4 @@
-# scaf-it - React Component Scaffolder
+# scaf-it-cli - React Component Scaffolder
 
 A simple CLI tool to scaffold React components with optional styles and configuration.
 
