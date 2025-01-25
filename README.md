@@ -1,105 +1,196 @@
-# Scaffold Component CLI Tool
+# Component Scaffolder
 
-This CLI tool helps you create React component scaffolding with `.jsx`, `index.js` and `.scss` files. It generates a component directory containing the component and stylesheet, based on the specified component name.
+A simple CLI tool to scaffold React components with optional styles and configuration.
 
-## Prerequisites
+## Features
 
-- **Node.js** and **npm**: Make sure you have Node.js and npm installed. You can verify the installation with:
-  ```bash
-  node -v
-  npm -v
-  ```
-- **Global npm directory in PATH**: Ensure that the global npm path is set up in your system PATH.
+- Quickly generate React component boilerplates.
+- Choose between SCSS or CSS for styling.
+- Optionally skip generating an `index.js` file.
+- Define a custom location for scaffolding components.
+
+---
 
 ## Installation
 
-### 1. Clone the Project
+To use the `scaf-it` CLI tool, follow these steps:
 
-Clone or download this repository to your local machine.
+1. Clone the repository:
 
-### 2. Add the Script to Your PATH
+   ```bash
+   git clone https://github.com/nicholas-hucal/global-scaffold.git
+   ```
 
-Since the script is set up for Node installations managed by Homebrew, add the following to your `.zshrc` file:
+2. Navigate to the project directory:
 
-```bash
-export PATH=$PATH:/usr/local/Cellar/node/<YOUR_NODE_VERSION>/lib/node_modules/.bin
-```
+   ```bash
+   cd component-scaffolder
+   ```
 
-Replace `<YOUR_NODE_VERSION>` with the installed version of Node (for example, `22.3.0`).
+3. Install the dependencies:
 
-After adding this, reload `.zshrc`:
+   ```bash
+   npm install
+   ```
 
-```bash
-source ~/.zshrc
-```
+4. Link the CLI tool globally:
+   ```bash
+   npm link
+   ```
 
-### 3. Link the Package Globally
+You can now use the `scaf-it` command globally.
 
-Navigate to the directory containing `package.json`, then run:
-
-```bash
-npm link
-```
-
-This command makes the `scaffold-component` command available globally.
+---
 
 ## Usage
 
-To scaffold a new component, use:
+The `scaf-it` CLI helps scaffold React components. Below are the usage details and examples.
+
+### Basic Usage
 
 ```bash
-scaffold-component <ComponentName> [componentPath]
+scaf-it <ComponentName> [Location] [--no-index] [--css]
 ```
 
-- **ComponentName**: Required. Name of the component to create.
-- **componentPath**: Optional. Path to the directory where the component should be created. Defaults to `src/components` if not provided.
+### Arguments
 
-Example:
+| Argument          | Description                                  | Required? | Default          |
+| ----------------- | -------------------------------------------- | --------- | ---------------- |
+| `<ComponentName>` | The name of the React component to scaffold. | Yes       | None             |
+| `[Location]`      | Directory to create the component in.        | No        | `src/components` |
+
+### Options
+
+| Option       | Description                          |
+| ------------ | ------------------------------------ |
+| `--no-index` | Skip generating an `index.js` file.  |
+| `--css`      | Use CSS for styling instead of SCSS. |
+
+---
+
+## Examples
+
+### 1. Default Behavior
 
 ```bash
-scaffold-component MyComponent
+scaf-it MyComponent
 ```
 
-This creates a directory `MyComponent` under `src/components` (or specified path) with the following files:
+Scaffolds a React component named `MyComponent` in `src/components` with:
 
 - `MyComponent.jsx`
 - `MyComponent.scss`
 - `index.js`
 
-## Troubleshooting
+---
 
-### Command Not Found: scaffold-component
+### 2. Custom Location
 
-If you encounter `zsh: command not found: scaffold-component`, check the following:
+```bash
+scaf-it MyComponent src/custom/path
+```
 
-1. Ensure that the Node global `bin` directory is added to your PATH. Confirm it by running:
+Scaffolds `MyComponent` in `src/custom/path`.
+
+---
+
+### 3. Skip `index.js`
+
+```bash
+scaf-it MyComponent --no-index
+```
+
+Scaffolds the component without generating an `index.js` file.
+
+---
+
+### 4. Use CSS for Styling
+
+```bash
+scaf-it MyComponent --css
+```
+
+Scaffolds the component with `MyComponent.css` instead of `MyComponent.scss`.
+
+---
+
+### 5. Combine Options
+
+```bash
+scaf-it MyComponent src/custom/path --no-index --css
+```
+
+Scaffolds the component in `src/custom/path` without `index.js` and uses `CSS` for styling.
+
+---
+
+## Output Example
+
+When you scaffold a component, the following structure is generated:
+
+```plaintext
+src/components/MyComponent/
+├── MyComponent.jsx
+├── MyComponent.scss (or .css)
+└── index.js (optional)
+```
+
+---
+
+## Help Command
+
+For a quick overview of usage, run:
+
+```bash
+scaf-it
+```
+
+This displays detailed usage instructions in the terminal.
+
+---
+
+## Development
+
+If you'd like to contribute or modify the tool:
+
+1. Clone the repository:
 
    ```bash
-   echo $PATH
+   git clone https://github.com/yourusername/component-scaffolder.git
    ```
 
-2. Make sure to run `npm link` again if the command still isn’t recognized.
+2. Install the dependencies:
 
-### Using npx as a Backup
+   ```bash
+   npm install
+   ```
 
-If linking doesn’t work, you can use `npx` to run the script:
+3. Test the tool locally:
 
-```bash
-npx ./scaffoldComponent.js <ComponentName>
-```
+   ```bash
+   node index.js <ComponentName> [Location] [--no-index] [--css]
+   ```
 
-## Uninstalling
+4. If making changes, be sure to test thoroughly!
 
-To unlink the package globally, run:
-
-```bash
-npm unlink -g
-```
-
-This removes the `scaffold-component` command from global use.
+---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
 
-# global-scaffold
+---
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request if you'd like to improve the tool.
+
+---
+
+## Support
+
+If you encounter any issues or have questions, feel free to reach out by opening an issue in the repository.
+
+---
+
+Enjoy faster React component scaffolding! 🚀

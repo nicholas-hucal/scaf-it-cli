@@ -3,15 +3,19 @@
 const fs = require("fs");
 const path = require("path");
 
-// Function to create the component scaffold
-function scaffoldComponent(componentName, componentPath) {
+// Function to scaffold the component
+function scaffoldComponent(componentName, location, options) {
   const kebabCaseName = componentName
     .replace(/([a-z])([A-Z])/g, "$1-$2")
     .toLowerCase();
-  // Resolve the full path for the component directory
-  const resolvedPath = path.resolve(componentPath, componentName);
+
+  const resolvedPath = path.resolve(location, componentName);
   const jsxFile = path.join(resolvedPath, `${componentName}.jsx`);
-  const scssFile = path.join(resolvedPath, `${componentName}.scss`);
+  const styleExtension = options.css ? "css" : "scss";
+  const styleFile = path.join(
+    resolvedPath,
+    `${componentName}.${styleExtension}`
+  );
   const indexFile = path.join(resolvedPath, `index.js`);
 
   // Check if the component directory already exists
@@ -25,7 +29,7 @@ function scaffoldComponent(componentName, componentPath) {
 
   // JSX file content
   const jsxContent = `import React from "react";
-import "./${componentName}.scss";
+import "./${componentName}.${styleExtension}";
 
 function ${componentName}() {
   return <div className="${kebabCaseName}">${componentName}</div>;
@@ -34,37 +38,78 @@ function ${componentName}() {
 export default ${componentName};
 `;
 
-  // SCSS file content
-  const scssContent = `.${kebabCaseName} {
-  // Add your styles here
+  // Style file content
+  const styleContent = `.${kebabCaseName} {
+  /* Add your styles here */
 }
 `;
 
-  // Index content
+  // Index file content
   const indexContent = `export { default } from './${componentName}';`;
 
-  // Create the JSX file
+  // Write files
   fs.writeFileSync(jsxFile, jsxContent);
+  fs.writeFileSync(styleFile, styleContent);
 
-  // Create the SCSS file
-  fs.writeFileSync(scssFile, scssContent);
-
-  // Create the Index file
-  fs.writeFileSync(indexFile, indexContent);
+  if (!options.noIndex) {
+    fs.writeFileSync(indexFile, indexContent);
+  }
 
   console.log(
     `Component "${componentName}" has been scaffolded at ${resolvedPath}.`
   );
 }
 
-// Get the component name and path from the command line arguments
-const componentName = process.argv[2];
-const componentPath = process.argv[3] || "src/components"; // Default to 'src/components' if no path is provided
+// Parse command-line arguments
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const options = {
+    noIndex: args.includes("--no-index"),
+    css: args.includes("--css"),
+  };
 
-if (!componentName) {
-  console.log("Please provide a component name.");
-  process.exit(1);
+  // Remove known flags from args
+  const filteredArgs = args.filter(
+    (arg) => arg !== "--no-index" && arg !== "--css"
+  );
+
+  // Extract component name and location
+  const componentName = filteredArgs[0];
+  const location = filteredArgs[1] || "src/components";
+
+  return { componentName, location, options };
 }
 
-// Call the function to scaffold the component
-scaffoldComponent(componentName, componentPath);
+const { componentName, location, options } = parseArgs();
+
+// Handle empty input or "scaf-it" without arguments
+if (!componentName) {
+  console.log(`
+Welcome to the Component Scaffolder!
+
+This script helps you scaffold a React component with optional styling files.
+
+Usage:
+  scaf-it <ComponentName> [Location] [--no-index] [--css]
+
+Arguments:
+  ComponentName  Name of the React component to scaffold (required)
+  Location       Directory to create the component in (default: src/components)
+
+Options:
+  --no-index     Skip creating index.js
+  --css          Use CSS instead of SCSS
+
+Examples:
+  scaf-it MyComponent
+  scaf-it MyComponent src/custom
+  scaf-it MyComponent --no-index
+  scaf-it MyComponent src/custom --css --no-index
+
+For help, use the --help flag: scaf-it --help
+  `);
+  process.exit(0);
+}
+
+// Scaffold the component
+scaffoldComponent(componentName, location, options);
