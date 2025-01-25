@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "description": "A CLI tool to scaffold React components",
   "bin": {
-    "scaf-it": "./scaffoldComponent.js"
+    "scaf-it": "./index.js"
   },
-  "dependencies": {
-    "fs-extra": "^10.1.0",
-    "path": "^0.12.7"
+  "dependencies": {},
+  "license": "MIT",
+  "author": "Your Name <pineconeworkshopdev@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholas-hucal/scaf-it-npm.git"
   },
-  "license": "MIT"
+  "keywords": [
+    "cli",
+    "scaffold",
+    "react",
+    "component",
+    "generator"
+  ]
 }

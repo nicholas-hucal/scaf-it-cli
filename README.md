@@ -1,4 +1,4 @@
-# Component Scaffolder
+# scaf-it - React Component Scaffolder
 
 A simple CLI tool to scaffold React components with optional styles and configuration.
 
@@ -13,30 +13,11 @@ A simple CLI tool to scaffold React components with optional styles and configur
 
 ## Installation
 
-To use the `scaf-it` CLI tool, follow these steps:
+To use `scaf-it` globally, install it via npm:
 
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/nicholas-hucal/global-scaffold.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd component-scaffolder
-   ```
-
-3. Install the dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Link the CLI tool globally:
-   ```bash
-   npm link
-   ```
+```bash
+npm install -g scaf-it
+```
 
 You can now use the `scaf-it` command globally.
 
@@ -86,11 +67,13 @@ Scaffolds a React component named `MyComponent` in `src/components` with:
 
 ### 2. Custom Location
 
+You can add a custom location by providing a path local to the project of your choosing.
+
 ```bash
 scaf-it MyComponent src/custom/path
 ```
 
-Scaffolds `MyComponent` in `src/custom/path`.
+Scaffolds `MyComponent` in `src/custom/path` in the CWD.
 
 ---
 
@@ -156,22 +139,28 @@ If you'd like to contribute or modify the tool:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/component-scaffolder.git
+   git clone https://github.com/yourusername/scaf-it-npm.git
    ```
 
-2. Install the dependencies:
+2. Navigate to the project directory:
 
    ```bash
-   npm install
+   cd scaf-it
    ```
 
-3. Test the tool locally:
+3. Link the CLI tool globally:
+
+   ```bash
+   npm link
+   ```
+
+4. Test the tool locally:
 
    ```bash
    node index.js <ComponentName> [Location] [--no-index] [--css]
    ```
 
-4. If making changes, be sure to test thoroughly!
+5. If making changes, be sure to test thoroughly!
 
 ---
 
