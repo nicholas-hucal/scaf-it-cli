@@ -13,24 +13,24 @@ A simple CLI tool to scaffold React components with optional styles and configur
 
 ## Installation
 
-To use `scaf-it` globally, install it via npm:
+To use `scaf-it-cli` globally, install it via npm:
 
 ```bash
-npm install -g scaf-it
+npm install -g scaf-it-cli
 ```
 
-You can now use the `scaf-it` command globally.
+You can now use the `scaf-it-cli` command globally.
 
 ---
 
 ## Usage
 
-The `scaf-it` CLI helps scaffold React components. Below are the usage details and examples.
+The `scaf-it-cli` CLI helps scaffold React components. Below are the usage details and examples.
 
 ### Basic Usage
 
 ```bash
-scaf-it <ComponentName> [Location] [--no-index] [--css]
+scaf-it-cli <ComponentName> [Location] [--no-index] [--css]
 ```
 
 ### Arguments
@@ -54,7 +54,7 @@ scaf-it <ComponentName> [Location] [--no-index] [--css]
 ### 1. Default Behavior
 
 ```bash
-scaf-it MyComponent
+scaf-it-cli MyComponent
 ```
 
 Scaffolds a React component named `MyComponent` in `src/components` with:
@@ -70,7 +70,7 @@ Scaffolds a React component named `MyComponent` in `src/components` with:
 You can add a custom location by providing a path local to the project of your choosing.
 
 ```bash
-scaf-it MyComponent src/custom/path
+scaf-it-cli MyComponent src/custom/path
 ```
 
 Scaffolds `MyComponent` in `src/custom/path` in the CWD.
@@ -80,7 +80,7 @@ Scaffolds `MyComponent` in `src/custom/path` in the CWD.
 ### 3. Skip `index.js`
 
 ```bash
-scaf-it MyComponent --no-index
+scaf-it-cli MyComponent --no-index
 ```
 
 Scaffolds the component without generating an `index.js` file.
@@ -90,7 +90,7 @@ Scaffolds the component without generating an `index.js` file.
 ### 4. Use CSS for Styling
 
 ```bash
-scaf-it MyComponent --css
+scaf-it-cli MyComponent --css
 ```
 
 Scaffolds the component with `MyComponent.css` instead of `MyComponent.scss`.
@@ -100,7 +100,7 @@ Scaffolds the component with `MyComponent.css` instead of `MyComponent.scss`.
 ### 5. Combine Options
 
 ```bash
-scaf-it MyComponent src/custom/path --no-index --css
+scaf-it-cli MyComponent src/custom/path --no-index --css
 ```
 
 Scaffolds the component in `src/custom/path` without `index.js` and uses `CSS` for styling.
@@ -125,7 +125,7 @@ src/components/MyComponent/
 For a quick overview of usage, run:
 
 ```bash
-scaf-it
+scaf-it-cli
 ```
 
 This displays detailed usage instructions in the terminal.
@@ -139,13 +139,13 @@ If you'd like to contribute or modify the tool:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/scaf-it-npm.git
+   git clone https://github.com/yourusername/scaf-it-cli.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd scaf-it
+   cd scaf-it-cli
    ```
 
 3. Link the CLI tool globally:
